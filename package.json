@@ -1,0 +1,23 @@
+{
+  "name": "proxy-it",
+  "version": "1.0.0",
+  "description": "High-performance HTTP proxy service for Kubernetes",
+  "main": "index.ts",
+  "scripts": {
+    "start": "bun run index.ts",
+    "dev": "bun --watch index.ts",
+    "docker:build": "docker build -t proxy-it:latest .",
+    "docker:run": "docker run -p 3000:3000 proxy-it:latest"
+  },
+  "keywords": [
+    "proxy",
+    "kubernetes",
+    "bun",
+    "http-proxy"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "latest"
+  }
+}

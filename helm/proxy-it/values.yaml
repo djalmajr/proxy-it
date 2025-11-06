@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  tag: latest
+  repository: ghcr.io/djalmajr/proxy-it
+
+service:
+  type: NodePort
+  port: 80
+
+# Target service for proxy (REQUIRED)
+proxy:
+  targetService: "http://backend-service:8080"  # Change to your backend service

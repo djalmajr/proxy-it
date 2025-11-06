@@ -1,0 +1,14 @@
+apiVersion: v2
+type: application
+name: proxy-it
+description: A high-performance HTTP proxy service for Kubernetes with request logging
+appVersion: "1.0.0"
+version: 1.0.0
+keywords:
+  - proxy
+  - http
+  - kubernetes
+  - bun
+maintainers:
+  - name: Djalma Jr.
+    email: djalmajr@gmail.com
