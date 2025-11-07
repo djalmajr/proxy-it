@@ -10,4 +10,4 @@ service:
 
 # Target service for proxy (REQUIRED)
 proxy:
-  targetService: "http://backend-service:8080"  # Change to your backend service
+  targetService: "http://backend-service:80"  # Change to your backend service

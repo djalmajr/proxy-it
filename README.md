@@ -129,11 +129,38 @@ kubectl get svc proxy-it -o jsonpath='{.spec.ports[0].nodePort}'
 
 ### Rancher Deployment
 
-1. Navigate to **Apps & Marketplace** → **Charts**
-2. Click **Import Helm Chart**
-3. Upload the `helm/proxy-it` directory
-4. Configure values in the UI
-5. Click **Install**
+#### Option 1: Using Local Helm Chart (Development)
+
+```bash
+# Package the chart
+helm package ./helm/proxy-it
+
+# Install from local package
+helm install proxy-it ./proxy-it-0.1.0.tgz
+```
+
+#### Option 2: Using Rancher UI with Git Repository
+
+1. Navigate to **Apps & Marketplace** → **Repositories**
+2. Click **Create** to add a new repository
+3. Configure repository:
+   - **Name**: `proxy-it-repo` (or any name)
+   - **Target**: Select "Git repository containing Helm chart"
+   - **Git Repo URL**: Your git repository URL
+   - **Git Branch**: `main`
+   - **Chart directory**: `helm/proxy-it` (if chart is not at root)
+4. Click **Create**
+5. Navigate to **Apps & Marketplace** → **Charts**
+6. Find "proxy-it" in the list and click **Install**
+7. Configure values in the UI (targetService, replicas, etc)
+8. Click **Install**
+
+#### Option 3: Direct Install via kubectl + Helm
+
+```bash
+# From your local machine
+helm install proxy-it ./helm/proxy-it --namespace proxy --create-namespace
+```
 
 ## Usage
 
